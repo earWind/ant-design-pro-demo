@@ -10,7 +10,7 @@
           {
             name: 'login',
             path: '/user/login',
-            component: './user/login',
+            component: './User/login',
           },
         ],
       },
@@ -21,7 +21,7 @@
           {
             path: '/',
             component: '../layouts/BasicLayout',
-            authority: ['admin', 'user', 'commodityManage'],
+            authority: ['admin', 'user'],
             routes: [
               {
                 path: '/',
@@ -52,17 +52,70 @@
 
               {
                 path: '/commodityManage',
-                name: 'commodityManage',
                 icon: 'smile',
-                component: './commodityManage',
-                authority: ['commodityManage'],
+                name: 'commodityManage',
                 routes: [
                   {
-                    path: '/commodityManage/sub-page',
-                    name: 'sub-page',
+                    path: '/',
+                    redirect: '/commodityManage/list',
+                  },
+                  {
+                    path: '/commodityManage/list',
+                    name: 'commodityManage-list',
                     icon: 'smile',
-                    component: './commodityManage/list',
-                    authority: ['commodityManage'],
+                    component: './CommodityManage/list',
+                  },
+                  {
+                    path: '/commodityManage/sort',
+                    name: 'commodityManage-sort',
+                    icon: 'smile',
+                    component: './CommodityManage/sort',
+                  },
+                  {
+                    path: '/commodityManage/brand',
+                    name: 'commodityManage-brand',
+                    icon: 'smile',
+                    component: './CommodityManage/brand',
+                  },
+                  {
+                    path: '/commodityManage/specification',
+                    name: 'commodityManage-specification',
+                    icon: 'smile',
+                    component: './CommodityManage/specification',
+                  },
+                ],
+              },
+              {
+                path: '/orderManage',
+                icon: 'smile',
+                name: 'orderManage',
+                routes: [
+                  {
+                    path: '/',
+                    redirect: '/orderManage/list',
+                  },
+                  {
+                    path: '/orderManage/list',
+                    name: 'orderManage-list',
+                    icon: 'smile',
+                    component: './OrderManage/list',
+                  },
+                ],
+              },
+              {
+                path: '/marketingActivities',
+                icon: 'smile',
+                name: 'marketingActivities',
+                routes: [
+                  {
+                    path: '/',
+                    redirect: '/marketingActivities/coupon',
+                  },
+                  {
+                    path: '/marketingActivities/coupon',
+                    name: 'marketingActivities-coupon',
+                    icon: 'smile',
+                    component: './MarketingActivities/coupon',
                   },
                 ],
               },

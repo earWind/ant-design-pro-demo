@@ -49,6 +49,14 @@ export default {
   'menu.editor.flow': '流程编辑器',
   'menu.editor.mind': '脑图编辑器',
   'menu.editor.koni': '拓扑编辑器',
+
   'menu.commodityManage': '商品管理',
-  'menu.commodityManage.sub-page': '商品列表',
+  'menu.commodityManage.commodityManage-list': '商品列表',
+  'menu.commodityManage.commodityManage-sort': '商品分类',
+  'menu.commodityManage.commodityManage-brand': '商品品牌',
+  'menu.commodityManage.commodityManage-specification': '商品规格',
+  'menu.orderManage': '订单管理',
+  'menu.orderManage.orderManage-list': '订单列表',
+  'menu.marketingActivities': '营销活动',
+  'menu.marketingActivities.marketingActivities-coupon': '优惠券',
 };

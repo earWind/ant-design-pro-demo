@@ -114,7 +114,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         }
         return <Link to={menuItemProps.path}>{defaultDom}</Link>;
       }}
-      /* 面包屑 */
+      /* 自定义面包屑的数据 */
       breadcrumbRender={(routers = []) => [
         {
           path: '/',
@@ -122,16 +122,18 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         },
         ...routers,
       ]}
-      itemRender={(route, params, routes, paths) => {
-        const first = routes.indexOf(route) === 0;
-        return first ? (
-          <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-        ) : (
-          <span>{route.breadcrumbName}</span>
-        );
-      }}
+      // itemRender={(route, params, routes, paths) => {
+      //   const first = routes.indexOf(route) === 0;
+      //   return first ? (
+      //     <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+      //   ) : (
+      //     <span>{route.breadcrumbName}</span>
+      //   );
+      // }}
       menuDataRender={menuDataRender}
+      /* 自定义头右部的 render 方法 */
       rightContentRender={() => <RightContent />}
+      /* 在显示前对菜单数据进行查看，修改不会触发重新渲染 */
       postMenuData={(menuData) => {
         menuDataRef.current = menuData || [];
         return menuData || [];
