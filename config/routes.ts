@@ -4,13 +4,13 @@
     component: '../layouts/BlankLayout',
     routes: [
       {
-        path: '/user',
+        path: '/login',
         component: '../layouts/UserLayout',
         routes: [
           {
             name: 'login',
-            path: '/user/login',
-            component: './User/login',
+            path: '/login',
+            component: './Login',
           },
         ],
       },
@@ -21,110 +21,183 @@
           {
             path: '/',
             component: '../layouts/BasicLayout',
-            authority: ['admin', 'user'],
             routes: [
               {
                 path: '/',
-                redirect: '/welcome',
+                redirect: '/commodity',
               },
               {
-                path: '/welcome',
-                name: 'welcome',
+                path: '/commodity',
                 icon: 'smile',
-                component: './Welcome',
-              },
-              {
-                path: '/admin',
-                name: 'admin',
-                icon: 'crown',
-                component: './Admin',
-                authority: ['admin'],
-                routes: [
-                  {
-                    path: '/admin/sub-page',
-                    name: 'sub-page',
-                    icon: 'smile',
-                    component: './Welcome',
-                    authority: ['admin'],
-                  },
-                ],
-              },
-
-              {
-                path: '/commodityManage',
-                icon: 'smile',
-                name: 'commodityManage',
+                name: 'commodity',
                 routes: [
                   {
                     path: '/',
-                    redirect: '/commodityManage/list',
+                    redirect: '/commodity/list',
                   },
                   {
-                    path: '/commodityManage/list',
-                    name: 'commodityManage-list',
+                    path: '/commodity/list',
+                    name: 'commodity-list',
                     icon: 'smile',
-                    component: './CommodityManage/list',
+                    component: './Commodity/list',
                   },
                   {
-                    path: '/commodityManage/sort',
-                    name: 'commodityManage-sort',
+                    path: '/commodity/sort',
+                    name: 'commodity-sort',
                     icon: 'smile',
-                    component: './CommodityManage/sort',
+                    component: './Commodity/sort',
                   },
                   {
-                    path: '/commodityManage/brand',
-                    name: 'commodityManage-brand',
+                    path: '/commodity/brand',
+                    name: 'commodity-brand',
                     icon: 'smile',
-                    component: './CommodityManage/brand',
+                    component: './Commodity/brand',
                   },
                   {
-                    path: '/commodityManage/specification',
-                    name: 'commodityManage-specification',
+                    path: '/commodity/specification',
+                    name: 'commodity-specification',
                     icon: 'smile',
-                    component: './CommodityManage/specification',
+                    component: './Commodity/specification',
                   },
                 ],
               },
               {
-                path: '/orderManage',
+                path: '/order',
                 icon: 'smile',
-                name: 'orderManage',
+                name: 'order',
                 routes: [
                   {
                     path: '/',
-                    redirect: '/orderManage/list',
+                    redirect: '/order/list',
                   },
                   {
-                    path: '/orderManage/list',
-                    name: 'orderManage-list',
+                    path: '/order/list',
+                    name: 'order-list',
                     icon: 'smile',
-                    component: './OrderManage/list',
+                    component: './Order/list',
                   },
                 ],
               },
               {
-                path: '/marketingActivities',
+                path: '/activity',
                 icon: 'smile',
-                name: 'marketingActivities',
+                name: 'activity',
                 routes: [
                   {
                     path: '/',
-                    redirect: '/marketingActivities/coupon',
+                    redirect: '/activity/coupon',
                   },
                   {
-                    path: '/marketingActivities/coupon',
-                    name: 'marketingActivities-coupon',
+                    path: '/activity/coupon',
+                    name: 'activity-coupon',
                     icon: 'smile',
-                    component: './MarketingActivities/coupon',
+                    component: './Activity/coupon',
                   },
                 ],
               },
-
               {
-                name: 'list.table-list',
-                icon: 'table',
-                path: '/list',
-                component: './ListTableList',
+                path: '/revenue',
+                icon: 'smile',
+                name: 'revenue',
+                routes: [
+                  {
+                    path: '/',
+                    redirect: '/revenue/houseCaptain',
+                  },
+                  {
+                    path: '/revenue/houseCaptain',
+                    name: 'revenue-houseCaptain',
+                    icon: 'smile',
+                    component: './Revenue/houseCaptain',
+                  },
+                  {
+                    path: '/revenue/maker',
+                    name: 'revenue-maker',
+                    icon: 'smile',
+                    component: './Revenue/maker',
+                  },
+                  {
+                    path: '/revenue/seting',
+                    name: 'revenue-seting',
+                    icon: 'smile',
+                    component: './Revenue/seting',
+                  },
+                ],
+              },
+              {
+                path: '/user',
+                icon: 'smile',
+                name: 'user',
+                routes: [
+                  {
+                    path: '/',
+                    redirect: '/user/houseCaptain',
+                  },
+                  {
+                    path: '/user/houseCaptain',
+                    name: 'user-houseCaptain',
+                    icon: 'smile',
+                    component: './User/houseCaptain',
+                  },
+                  {
+                    path: '/user/maker',
+                    name: 'user-maker',
+                    icon: 'smile',
+                    component: './User/maker',
+                  },
+                  {
+                    path: '/user/house',
+                    name: 'user-house',
+                    icon: 'smile',
+                    component: './User/house',
+                  },
+                ],
+              },
+              {
+                path: '/check',
+                icon: 'smile',
+                name: 'check',
+                routes: [
+                  {
+                    path: '/',
+                    redirect: '/check/recommend',
+                  },
+                  {
+                    path: '/check/recommend',
+                    name: 'check-recommend',
+                    icon: 'smile',
+                    component: './Check/recommend',
+                  },
+                  {
+                    path: '/check/apply',
+                    name: 'check-apply',
+                    icon: 'smile',
+                    component: './Check/apply',
+                  },
+                ],
+              },
+              {
+                path: '/system',
+                icon: 'smile',
+                name: 'system',
+                routes: [
+                  {
+                    path: '/',
+                    redirect: '/system/doubt',
+                  },
+                  {
+                    path: '/system/doubt',
+                    name: 'system-doubt',
+                    icon: 'smile',
+                    component: './System/doubt',
+                  },
+                  {
+                    path: '/system/agreement',
+                    name: 'system-agreement',
+                    icon: 'smile',
+                    component: './System/agreement',
+                  },
+                ],
               },
               {
                 component: './404',

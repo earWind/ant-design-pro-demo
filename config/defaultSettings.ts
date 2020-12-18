@@ -11,7 +11,7 @@ const proSettings: DefaultSettings = {
   contentWidth: 'Fluid',
   fixedHeader: false,
   fixSiderbar: true,
-  title: 'Ant Design Pro',
+  title: '',
   pwa: false,
   iconfontUrl: '',
   splitMenus: true,

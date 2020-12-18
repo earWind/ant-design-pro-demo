@@ -16,7 +16,7 @@ export default defineConfig({
   history: {
     type: 'browser',
   },
-  /* 国际化 按理说是用不上的 等以后来清理 */
+  /* 国际化 */
   locale: {
     // default zh-CN
     default: 'zh-CN',
