@@ -7,7 +7,8 @@ import { StateType } from '@/models/login';
 import { LoginParamsType } from '@/services/login';
 import { ConnectState } from '@/models/connect';
 
-import styles from './index.less';
+import WechatIMG2 from '@/assets/img/WechatIMG2.png';
+import styles from '@/style/login.less';
 
 interface LoginProps {
   dispatch: Dispatch;
@@ -52,6 +53,8 @@ const Login: React.FC<LoginProps> = (props) => {
             size: 'large',
             style: {
               width: '100%',
+              background: '#1ABC9C',
+              borderColor: '#1ABC9C',
             },
           },
           searchConfig: {
@@ -65,7 +68,8 @@ const Login: React.FC<LoginProps> = (props) => {
         {status === 'error' && loginType === 'account' && !submitting && (
           <LoginMessage content="账户或密码错误（admin/ant.design)" />
         )}
-        <h1>直营店小程序后台管理</h1>
+        <img src={WechatIMG2} className={styles.logo} alt="" />
+        <p className={styles.title}>直营店小程序后台管理</p>
         <ProFormText
           name="userName"
           fieldProps={{

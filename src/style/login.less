@@ -1,8 +1,14 @@
 @import '~antd/es/style/themes/default.less';
 
 .main {
-  width: 328px;
-  margin: 0 auto;
+  width: 350px;
+  height: 460px;
+  margin: 100px auto;
+  padding: 10px 25px 15px 30px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
+
   @media screen and (max-width: @screen-sm) {
     width: 95%;
     max-width: 328px;
@@ -32,6 +38,7 @@
     margin-top: 24px;
     line-height: 22px;
     text-align: left;
+
     .register {
       float: right;
     }
@@ -40,5 +47,17 @@
   .prefixIcon {
     color: @primary-color;
     font-size: @font-size-base;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .title {
+    color: #1ABC9C;
+    font-weight: 650;
+    font-size: 24px;
+    font-style: normal;
+    line-height: 28px;
   }
 }

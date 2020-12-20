@@ -15,7 +15,8 @@ import Authorized from '@/utils/Authorized';
 import RightContent from '@/components/GlobalHeader/RightContent';
 import { ConnectState } from '@/models/connect';
 import { getMatchMenu } from '@umijs/route-utils';
-import logo from '../assets/logo.png';
+import '@/style/basiclLayout.less';
+import logo from '@/assets/img/logo.png';
 
 const noMatch = (
   <Result

@@ -42,7 +42,11 @@ const UserLayout: React.FC<UserLayoutProps> = (props) => {
       <div className={styles.container}>
         <div className={styles.content}>{children}</div>
         <p className={styles.footer}>
-          Copyright © <a href="www.jmjcm.com">www.jmjcm.com</a>, All Rights Reserved.
+          Copyright ©{' '}
+          <a href="https://www.jmjcm.com/" target="_blank">
+            www.jmjcm.com
+          </a>
+          , All Rights Reserved.
         </p>
       </div>
     </HelmetProvider>
