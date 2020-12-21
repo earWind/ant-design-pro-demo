@@ -3,6 +3,7 @@ import { Button, Modal } from 'antd';
 import { PlusOutlined, DeleteOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
 import ProTable, { ProColumns, ActionType } from '@ant-design/pro-table';
+import { history } from 'umi';
 
 import { TableListItem, BasicListItemDataType } from '@/types/commodity';
 import { queryCommodityList } from '@/api/commodity';
@@ -22,6 +23,10 @@ const TableList: React.FC<{}> = () => {
       dataIndex: 'index',
       valueType: 'indexBorder',
       width: 48,
+    },
+    {
+      title: '商品编码',
+      dataIndex: 'code',
     },
     {
       title: '商品名称',
@@ -94,21 +99,35 @@ const TableList: React.FC<{}> = () => {
       dataIndex: 'createdAt',
       valueType: 'date',
     },
+
     {
       title: '操作',
       dataIndex: 'option',
       valueType: 'option',
-      render: (_, record) => [
+      render: (_, row) => [
+        <a
+          key="modify"
+          onClick={() => {
+            history.push({
+              pathname: '/commodity/selectSort',
+              query: {
+                row
+              },
+            });
+          }}
+        >
+          编辑
+        </a>,
+        <a key="delete">上架</a>,
+        <a key="delete">复制</a>,
         <a
           key="details"
           onClick={() => {
-            console.log(record);
+            console.log(row);
           }}
         >
           详情
         </a>,
-        <a key="modyfi">修改</a>,
-        <a key="delete">删除</a>,
       ],
     },
   ];

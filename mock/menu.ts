@@ -39,6 +39,20 @@ const getMenu = (req: Request, res: Response) => {
           // icon: 'smile',
           component: './Commodity/specification',
         },
+        {
+          path: '/commodity/edit',
+          name: 'commodity-edit',
+          hideInMenu: 'true',
+          // icon: 'smile',
+          component: './Commodity/edit',
+        },
+        {
+          path: '/commodity/selectSort',
+          name: 'commodity-selectSort',
+          hideInMenu: true, // 添加页不需要在menu上显示
+          // icon: 'smile',
+          component: './Commodity/selectSort',
+        },
       ],
     },
     {

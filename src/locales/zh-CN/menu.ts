@@ -55,6 +55,8 @@ export default {
   'menu.commodity.commodity-sort': '商品分类',
   'menu.commodity.commodity-brand': '商品品牌',
   'menu.commodity.commodity-specification': '商品规格',
+  'menu.commodity.commodity-edit': '商品编辑',
+  'menu.commodity.commodity-selectSort': '选择商品分类',
   'menu.order': '订单管理',
   'menu.order.order-list': '订单列表',
   'menu.activity': '营销活动',

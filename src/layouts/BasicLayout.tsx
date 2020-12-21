@@ -69,8 +69,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   /**
    * use Authorized check all menu item
    */
-  const serverMenuItem = (menuList: MenuDataItem[]): MenuDataItem[] => {
-    const serverMenus: MenuDataItem[] = JSON.parse(localStorage.getItem('menuData') || '');
+  const serverMenuItem = (): MenuDataItem[] => {
+    // 没获取到缓存应该跳到登录页
+    const serverMenus: MenuDataItem[] = JSON.parse(localStorage.getItem('menuData') || '[]');
     // menuList.push(...serverMenus);
     // const result = menuList.map((item) => {
     //   const localItem = {
@@ -120,7 +121,12 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         if (menuItemProps.isUrl || !menuItemProps.path) {
           return defaultDom;
         }
-        return <Link to={menuItemProps.path}>{defaultDom}</Link>;
+        return (
+          <Link to={menuItemProps.path}>
+            <i className="icon_img crm" style={{ display: 'inline-block' }} />
+            {defaultDom}
+          </Link>
+        );
       }}
       /* 自定义面包屑的数据 */
       breadcrumbRender={(routers = []) => [
@@ -143,9 +149,9 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       /* 自定义头右部的 render 方法 */
       rightContentRender={() => <RightContent />}
       /* 在显示前对菜单数据进行查看，修改不会触发重新渲染 */
-      postMenuData={(_menuData) => {
-        menuDataRef.current = _menuData || [];
-        return _menuData || [];
+      postMenuData={(menuData) => {
+        menuDataRef.current = menuData || [];
+        return menuData || [];
       }}
     >
       <Authorized authority={authorized!.authority} noMatch={noMatch}>
