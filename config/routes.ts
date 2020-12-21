@@ -8,7 +8,7 @@
         component: '../layouts/UserLayout',
         routes: [
           {
-            name: 'login',
+            name: '登录',
             path: '/login',
             component: './Login',
           },
@@ -28,7 +28,7 @@
               },
               {
                 path: '/commodity',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'commodity',
                 routes: [
                   {
@@ -38,32 +38,32 @@
                   {
                     path: '/commodity/list',
                     name: 'commodity-list',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Commodity/list',
                   },
                   {
                     path: '/commodity/sort',
                     name: 'commodity-sort',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Commodity/sort',
                   },
                   {
                     path: '/commodity/brand',
                     name: 'commodity-brand',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Commodity/brand',
                   },
                   {
                     path: '/commodity/specification',
                     name: 'commodity-specification',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Commodity/specification',
                   },
                 ],
               },
               {
                 path: '/order',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'order',
                 routes: [
                   {
@@ -73,14 +73,14 @@
                   {
                     path: '/order/list',
                     name: 'order-list',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Order/list',
                   },
                 ],
               },
               {
                 path: '/activity',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'activity',
                 routes: [
                   {
@@ -90,14 +90,14 @@
                   {
                     path: '/activity/coupon',
                     name: 'activity-coupon',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Activity/coupon',
                   },
                 ],
               },
               {
                 path: '/revenue',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'revenue',
                 routes: [
                   {
@@ -107,26 +107,26 @@
                   {
                     path: '/revenue/houseCaptain',
                     name: 'revenue-houseCaptain',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Revenue/houseCaptain',
                   },
                   {
                     path: '/revenue/maker',
                     name: 'revenue-maker',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Revenue/maker',
                   },
                   {
                     path: '/revenue/seting',
                     name: 'revenue-seting',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Revenue/seting',
                   },
                 ],
               },
               {
                 path: '/user',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'user',
                 routes: [
                   {
@@ -136,26 +136,26 @@
                   {
                     path: '/user/houseCaptain',
                     name: 'user-houseCaptain',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './User/houseCaptain',
                   },
                   {
                     path: '/user/maker',
                     name: 'user-maker',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './User/maker',
                   },
                   {
                     path: '/user/house',
                     name: 'user-house',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './User/house',
                   },
                 ],
               },
               {
                 path: '/check',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'check',
                 routes: [
                   {
@@ -165,20 +165,20 @@
                   {
                     path: '/check/recommend',
                     name: 'check-recommend',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Check/recommend',
                   },
                   {
                     path: '/check/apply',
                     name: 'check-apply',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './Check/apply',
                   },
                 ],
               },
               {
                 path: '/system',
-                icon: 'smile',
+                // icon: 'smile',
                 name: 'system',
                 routes: [
                   {
@@ -188,13 +188,13 @@
                   {
                     path: '/system/doubt',
                     name: 'system-doubt',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './System/doubt',
                   },
                   {
                     path: '/system/agreement',
                     name: 'system-agreement',
-                    icon: 'smile',
+                    // icon: 'smile',
                     component: './System/agreement',
                   },
                 ],

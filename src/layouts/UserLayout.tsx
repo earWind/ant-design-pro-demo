@@ -3,7 +3,7 @@ import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useIntl, ConnectProps, connect } from 'umi';
 import React from 'react';
 import { ConnectState } from '@/models/connect';
-import styles from './UserLayout.less';
+import styles from '@/style/userLayout.less'
 
 export interface UserLayoutProps extends Partial<ConnectProps> {
   breadcrumbNameMap: {
@@ -43,7 +43,7 @@ const UserLayout: React.FC<UserLayoutProps> = (props) => {
         <div className={styles.content}>{children}</div>
         <p className={styles.footer}>
           Copyright ©{' '}
-          <a href="https://www.jmjcm.com/" target="_blank">
+          <a href="https://www.jmjcm.com/" target="_blank" rel="noreferrer">
             www.jmjcm.com
           </a>
           , All Rights Reserved.

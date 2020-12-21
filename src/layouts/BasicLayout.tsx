@@ -45,18 +45,6 @@ export type BasicLayoutContext = { [K in 'location']: BasicLayoutProps[K] } & {
     [path: string]: MenuDataItem;
   };
 };
-/**
- * use Authorized check all menu item
- */
-
-const menuDataRender = (menuList: MenuDataItem[]): MenuDataItem[] =>
-  menuList.map((item) => {
-    const localItem = {
-      ...item,
-      children: item.children ? menuDataRender(item.children) : undefined,
-    };
-    return Authorized.check(item.authority, localItem, null) as MenuDataItem;
-  });
 
 const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   const {
@@ -77,6 +65,24 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       });
     }
   }, []);
+
+  /**
+   * use Authorized check all menu item
+   */
+  const serverMenuItem = (menuList: MenuDataItem[]): MenuDataItem[] => {
+    const serverMenus: MenuDataItem[] = JSON.parse(localStorage.getItem('menuData') || '');
+    // menuList.push(...serverMenus);
+    // const result = menuList.map((item) => {
+    //   const localItem = {
+    //     ...item,
+    //     children: item.children ? serverMenuItem(item.children) : undefined,
+    //   };
+    //   return Authorized.check(item.authority, localItem, null) as MenuDataItem;
+    // });
+    // return result;
+
+    return serverMenus;
+  };
   /**
    * init variables
    */
@@ -106,6 +112,7 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
       formatMessage={formatMessage}
       {...props}
       {...settings}
+      /* 菜单的折叠收起事件 */
       onCollapse={handleMenuCollapse}
       onMenuHeaderClick={() => history.push('/')}
       /* 菜单项 */
@@ -123,21 +130,22 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
         },
         ...routers,
       ]}
-      // itemRender={(route, params, routes, paths) => {
-      //   const first = routes.indexOf(route) === 0;
-      //   return first ? (
-      //     <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
-      //   ) : (
-      //     <span>{route.breadcrumbName}</span>
-      //   );
-      // }}
-      menuDataRender={menuDataRender}
+      itemRender={(route, params, routes, paths) => {
+        const first = routes.indexOf(route) === 0;
+        return first ? (
+          <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+        ) : (
+          <span>{route.breadcrumbName}</span>
+        );
+      }}
+      /* 从服务器加载 menu */
+      menuDataRender={serverMenuItem}
       /* 自定义头右部的 render 方法 */
       rightContentRender={() => <RightContent />}
       /* 在显示前对菜单数据进行查看，修改不会触发重新渲染 */
-      postMenuData={(menuData) => {
-        menuDataRef.current = menuData || [];
-        return menuData || [];
+      postMenuData={(_menuData) => {
+        menuDataRef.current = _menuData || [];
+        return _menuData || [];
       }}
     >
       <Authorized authority={authorized!.authority} noMatch={noMatch}>
@@ -147,7 +155,8 @@ const BasicLayout: React.FC<BasicLayoutProps> = (props) => {
   );
 };
 
-export default connect(({ global, settings }: ConnectState) => ({
+export default connect(({ global, settings, login }: ConnectState) => ({
   collapsed: global.collapsed,
   settings,
+  menuData: login.menuData,
 }))(BasicLayout);
